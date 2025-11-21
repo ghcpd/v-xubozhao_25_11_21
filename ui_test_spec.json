@@ -1,0 +1,33 @@
+{
+  "test_name": "UI/UX Improvement",
+  "category": "ui_ux",
+  "description": "Detect and repair accessibility issues and confusing UI layout flows.",
+  "target_page": "demo_dashboard",
+  "issues_to_simulate": [
+    {
+      "id": "ui-acc-001",
+      "type": "accessibility",
+      "description": "Missing aria-label on navigation items."
+    },
+    {
+      "id": "ui-color-002",
+      "type": "contrast",
+      "description": "Button text contrast too low."
+    },
+    {
+      "id": "ui-space-003",
+      "type": "layout",
+      "description": "Uneven padding and inconsistent spacing."
+    },
+    {
+      "id": "ui-flow-004",
+      "type": "usability",
+      "description": "Action buttons not grouped logically causing user confusion."
+    },
+    {
+      "id": "ui-resp-005",
+      "type": "responsive",
+      "description": "Layout breaks when viewport < 480px."
+    }
+  ]
+}
