@@ -1,0 +1,79 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Demo Dashboard - Buggy</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      /* Intentionally bad styles for demo */
+      .broken-layout { width: 540px; /* will overflow on small screens */ }
+      .tiny-gap { padding: 2px; }
+      .low-contrast { color: #b8b7b7; }
+    </style>
+  </head>
+  <body class="bg-white text-slate-800 p-8">
+    <nav class="flex items-center justify-between mb-6">
+      <div class="flex items-center gap-4">
+        <img src="https://via.placeholder.com/40" alt="logo" />
+        <span class="font-bold">Acme Demo</span>
+      </div>
+      <!-- Missing aria labels intentionally -->
+      <ul class="flex gap-3">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Reports</a></li>
+        <li><a href="#">Settings</a></li>
+      </ul>
+    </nav>
+
+    <main class="broken-layout mx-auto border rounded p-4">
+      <h2 class="text-xl font-semibold mb-2">Dashboard</h2>
+
+      <div class="mb-4">
+        <label>Search</label>
+        <!-- tiny spacing, missing form label for accessibility -->
+        <input class="border p-1 w-full tiny-gap" placeholder="Search reports..." />
+      </div>
+
+      <section class="grid grid-cols-2 gap-1 mb-6">
+        <article class="p-3 border">
+          <h3 class="text-sm font-medium">Overview</h3>
+          <p class="text-xs low-contrast">Key numbers are here but the text is hard to read due to contrast.</p>
+        </article>
+        <article class="p-6 border">
+          <h3 class="text-sm font-medium">Activity</h3>
+          <p class="text-xs">Recent events are shown.</p>
+        </article>
+      </section>
+
+      <!-- Buttons intentionally separated causing confusion -->
+      <div class="flex justify-between items-center">
+        <div>
+          <button class="px-3 py-1 rounded bg-white border low-contrast">Save</button>
+        </div>
+
+        <div>
+          <button class="px-6 py-2 rounded bg-blue-50 text-gray-300">Delete</button>
+          <!-- action floating far away from primary controls -->
+        </div>
+      </div>
+
+      <!-- Introduce a keyboard trap: focus remains in this text area because steal focus script -->
+      <div class="mt-6"> 
+        <label for="notes">Notes</label>
+        <textarea id="notes" class="w-full h-24 border p-2"></textarea>
+      </div>
+
+      <script>
+        // Keyboard trap simulation: focus stays inside when trying to tab out
+        const notes = document.getElementById('notes');
+        notes && notes.addEventListener('keydown', (e) => {
+          if (e.key === 'Tab') {
+            e.preventDefault();
+            notes.focus();
+          }
+        });
+      </script>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>UI/UX Demo - Buggy & Fixed</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-gray-50 min-h-screen flex items-center justify-center p-6">
+    <main class="max-w-4xl w-full space-y-6">
+      <header class="text-center">
+        <h1 class="text-3xl font-bold">UI/UX Demo: Buggy and Fixed Pages</h1>
+        <p class="text-sm text-gray-600 mt-1">This workspace contains a deliberately broken demo and a fixed version.</p>
+      </header>
+
+      <section class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <a href="/buggy.html" class="p-6 border rounded shadow hover:bg-gray-100 text-center">Open Buggy Demo</a>
+        <a href="/fixed.html" class="p-6 border rounded shadow hover:bg-gray-100 text-center">Open Fixed Demo</a>
+      </section>
+
+      <footer class="text-xs text-gray-400 text-center">Server port 3000 — Playwright tests available in /tests</footer>
+    </main>
+  </body>
+</html>
