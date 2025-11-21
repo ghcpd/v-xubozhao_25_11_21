@@ -1,0 +1,24 @@
+{
+  "name": "codex-ui-improvement",
+  "version": "1.0.0",
+  "description": "Demo dashboard UI improvements with accessibility and UX fixes",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "start:ci": "cross-env PORT=4173 node server.js",
+    "test": "playwright test",
+    "test:headed": "playwright test --headed --project=chromium --grep \"@smoke\"",
+    "screenshot": "node scripts/capture-screenshot.js"
+  },
+  "dependencies": {
+    "compression": "^1.7.5",
+    "express": "^4.19.2",
+    "helmet": "^7.1.0",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.48.2",
+    "cross-env": "^10.1.0"
+  }
+}

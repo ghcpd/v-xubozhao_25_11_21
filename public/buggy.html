@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Demo Dashboard (Buggy)</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+      }
+      .nav {
+        background: #222;
+        color: #fff;
+        padding: 4px 8px;
+      }
+      .nav ul {
+        display: flex;
+        gap: 8px;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      .nav a {
+        color: #fff;
+        text-decoration: none;
+      }
+      .content {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+        padding: 12px;
+      }
+      .card {
+        flex: 1 1 220px;
+        border: 1px solid #ddd;
+        padding: 8px 32px 4px 8px;
+      }
+      .actions {
+        margin-top: 4px;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+      }
+      .primary {
+        background: #f4e6f4;
+        color: #f2f;
+        border: none;
+        padding: 6px 16px;
+      }
+      .secondary {
+        background: transparent;
+        border: 1px solid #777;
+        padding: 12px 4px;
+      }
+      .split {
+        display: flex;
+        gap: 48px;
+      }
+      @media (max-width: 480px) {
+        .split {
+          flex-wrap: nowrap;
+        }
+        .card {
+          min-width: 360px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="nav">
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Reports</a></li>
+        <li><a href="#">Alerts</a></li>
+        <li><a href="#">Settings</a></li>
+      </ul>
+    </nav>
+    <main class="content">
+      <section class="card split">
+        <div>
+          <h2>Usage</h2>
+          <p>42 Active users</p>
+        </div>
+        <div>
+          <h2>Errors</h2>
+          <p>7 unresolved</p>
+        </div>
+      </section>
+      <section class="card">
+        <h2>Actions</h2>
+        <div class="actions">
+          <button class="secondary">Dismiss</button>
+          <button class="primary">Primary Action</button>
+          <button class="secondary">Escalate</button>
+        </div>
+      </section>
+      <section class="card">
+        <h2>Notes</h2>
+        <textarea rows="3" cols="28">Type here</textarea>
+      </section>
+    </main>
+  </body>
+</html>
