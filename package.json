@@ -1,0 +1,32 @@
+{
+  "name": "demo-dashboard",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "vite --host 0.0.0.0 --port 5173",
+    "build": "vite build",
+    "preview": "vite preview --host 0.0.0.0 --port 5173",
+    "serve": "vite --host --port 5173",
+    "test": "npm run test:e2e",
+    "test:e2e": "playwright test",
+    "test:e2e:ui": "playwright test --ui",
+    "lint": "echo \"lint not configured\""
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.27",
+    "@types/react-dom": "^18.2.12",
+    "@vitejs/plugin-react": "^4.1.0",
+    "@playwright/test": "^1.40.0",
+    "@axe-core/playwright": "^4.9.0",
+    "autoprefixer": "^10.4.16",
+    "playwright": "^1.40.0",
+    "postcss": "^8.4.31",
+    "tailwindcss": "^3.3.5",
+    "typescript": "^5.2.2",
+    "vite": "^4.4.9"
+  }
+}

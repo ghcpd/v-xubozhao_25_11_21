@@ -1,0 +1,93 @@
+.buggy-dashboard {
+  font-family: Arial, sans-serif;
+}
+
+.buggy-dashboard .nav {
+  display: flex;
+  gap: 8px;
+  background: #fff;
+  border: 1px solid #ddd;
+  padding: 6px 8px;
+  /* Missing aria-label intentionally */
+}
+
+.buggy-dashboard .nav a {
+  color: #666;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.buggy-dashboard .nav a.active {
+  border-bottom: 2px solid #666;
+}
+
+.buggy-dashboard .content {
+  margin-top: 14px;
+  display: flex;
+  /* Breaks on small screens due to fixed width */
+  width: 620px;
+  gap: 10px;
+}
+
+.buggy-dashboard .sidebar {
+  width: 180px;
+  background: #fafafa;
+  border: 1px solid #eee;
+  padding: 5px 7px;
+}
+
+.buggy-dashboard .main-panel {
+  flex: 1;
+  background: #fff;
+  border: 1px solid #ddd;
+  padding: 12px 18px 6px 10px; /* uneven padding */
+}
+
+.buggy-dashboard h2 {
+  margin-top: 0;
+  font-size: 18px;
+}
+
+/* Low contrast button */
+.buggy-dashboard .primary-button {
+  background: #e8e8e8;
+  color: #bdbdbd;
+  border: none;
+  border-radius: 4px;
+  padding: 6px 10px;
+  cursor: pointer;
+}
+
+.buggy-dashboard .secondary-button {
+  margin-left: 3px;
+  padding: 8px 6px;
+}
+
+/* Ungrouped actions */
+.buggy-dashboard .actions-top {
+  margin-top: 4px;
+}
+
+.buggy-dashboard .actions-bottom {
+  margin-top: 18px;
+  display: flex;
+  gap: 20px;
+}
+
+/* Inconsistent spacing across cards */
+.buggy-dashboard .cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 6px 20px;
+  margin-top: 16px;
+}
+
+.buggy-dashboard .card {
+  border: 1px solid #e6e6e6;
+  padding: 7px 10px 12px 5px;
+}
+
+.buggy-dashboard .card h3 {
+  margin: 0 0 4px 0;
+  font-size: 15px;
+}
