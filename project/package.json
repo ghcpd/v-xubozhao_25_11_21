@@ -1,0 +1,22 @@
+{
+  "name": "ui-buggy-demo",
+  "version": "1.0.0",
+  "description": "Demo app with intentionally buggy UI and a fixed version, plus Playwright tests",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "start:dev": "NODE_ENV=development node server.js",
+    "test": "npx playwright test --reporter=list",
+    "test:headed": "npx playwright test --headed",
+    "lint": "echo 'No linter configured'"
+  },
+  "author": "oswe-prime",
+  "license": "MIT",
+  "devDependencies": {
+    "@playwright/test": "^1.39.1",
+    "playwright": "^1.39.1"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
