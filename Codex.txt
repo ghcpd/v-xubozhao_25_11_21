@@ -1,0 +1,83 @@
+🎯 Requirements & Tasks
+You must use the provided test file ui_test_spec.json and follow this workflow:
+
+1. Reconstruct the buggy UI
+Based on the issues listed in ui_test_spec.json, generate a minimal UI that intentionally contains the defects.
+
+2. Detect all problems
+Identify:
+
+Accessibility issues (missing labels, ARIA, keyboard traps, contrast)
+Layout problems (misalignment, spacing, overlap)
+Visual inconsistencies (color mismatch, unbalanced hierarchy)
+UX flow issues (unclear actions, confusing components)
+Responsiveness issues
+3. Fix all issues
+Rebuild the UI with:
+
+Tailwind CSS styling
+Clear visual hierarchy
+Proper spacing and responsiveness
+Correct ARIA attributes
+Good contrast ratios
+Smooth interactions
+4. Generate a runnable project
+You must automatically create:
+
+Project structure
+UI implementation
+setup.sh
+run_tests.sh
+Automated UI tests (Playwright / Puppeteer)
+Any required config files
+5. Run and verify
+Start the server on port 3000, ensure the UI loads correctly.
+
+6. Return deliverables
+List of UI problems found
+Fixed UI version
+Test results
+Screenshots (real or mocked)
+Changelog of created/modified files
+Instructions for how to view and test the app
+📂 Input File
+ui_test_spec.json
+
+
+Work Summary
+
+server.js (lines 1-35) adds an Express static server with Helmet, compression, /health monitoring, and SPA-friendly fallback so the dashboard can be hosted behind npm start.
+public/index.html (lines 1-218), public/styles.css (lines 1-183), and public/scripts.js (lines 1-35) rebuild the dashboard with Tailwind CDN classes, color tokens, responsive layout, focus-visible styling, ARIA-rich navigation, grouped actions, and JS for alert filtering + mobile nav toggles.
+public/buggy.html (lines 1-103) captures the intentionally broken UI requested by the spec for documentation.
+Tooling/automation: package.json (lines 1-18) (plus package-lock.json (line 1)) defines Express/Helmet deps, Playwright + cross-env dev tooling, CI/start/screenshot scripts; playwright.config.ts (lines 1-28) serves the app via npm run start:ci on an unblocked port and runs Chromium + mobile projects; tests/ui.spec.ts (lines 1-40) asserts accessibility, filtering, and responsive behaviors; setup.sh (lines 1-7), run_tests.sh (lines 1-4), and scripts/capture-screenshot.js (lines 1-49) provide install/test automation and deterministic screenshots. Artifact artifacts/dashboard.png (line 1) shows the fixed UI.
+UI Issues (simulated in public/buggy.html)
+
+public/buggy.html (lines 70-76)—Navigation lacks an accessible label/landmark, so screen readers do not know how to get to core sections.
+public/buggy.html (lines 44-49)—Primary action button uses #f4e6f4 background with #ff22ff text, yielding insufficient contrast (~1.4:1).
+public/buggy.html (lines 33-54)—Cards/padding vary wildly (32 px right padding vs. 8 px left, inconsistent button sizing), breaking visual rhythm.
+public/buggy.html (lines 89-95)—Action buttons are stacked randomly and lack grouping, so users cannot tell which action is primary/secondary.
+public/buggy.html (lines 59-65)—Mobile media rule forces .split to stay nowrap and each card to min-width:360px, causing horizontal scrolling/truncation <480 px.
+public/buggy.html (lines 98-99)—Notes textarea lacks any <label> or aria-labelledby, so SR users cannot tell what the input is for.
+Fixed UI
+
+Landmark & nav: skip link, sticky banner, desktop/mobile nav with aria labels (public/index.html (lines 9-78)) plus high-contrast nav link styling.
+Dashboard body: responsive cards, alert list, activity feed, and grouped actions (public/index.html (lines 79-218)) with Tailwind utilities for spacing, hierarchy, and accessible labels/badges.
+Interactions: public/scripts.js (lines 1-35) keeps mobile nav state in sync and ensures alert filters update both visibility and aria-pressed.
+Visual system: CSS tokens & states in public/styles.css (lines 1-183) supply consistent contrast, rounded shapes, and focus rings.
+Tests
+
+npm test → 8 Playwright specs passed (chromium + Pixel 5 projects) verifying navigation landmarks, filtering, button hierarchy, and responsive menu toggles.
+Screenshot
+
+artifacts/dashboard.png was regenerated via npm run screenshot after spinning up the server and capturing a full-page Playwright snapshot.
+Changelog
+
+Added/updated: package.json (lines 1-18), package-lock.json (line 1), server.js (lines 1-35), public/buggy.html (lines 1-103), public/index.html (lines 1-218), public/styles.css (lines 1-183), public/scripts.js (lines 1-35), playwright.config.ts (lines 1-28), tests/ui.spec.ts (lines 1-40), setup.sh (lines 1-7), run_tests.sh (lines 1-4), scripts/capture-screenshot.js (lines 1-49), artifacts/dashboard.png (line 1).
+Run & Test Instructions
+
+Install & browsers: bash setup.sh.
+Because Windows currently reserves TCP ports 2973‑3072 (netsh int ipv4 show excludedportrange protocol=tcp), binding to 3000 fails without elevation. Until that reservation is removed, export a safe port (e.g. PowerShell $env:PORT=4173; npm start or npm run start:ci) and visit http://127.0.0.1:4173. Once port 3000 is freed, simply run npm start to serve on 3000 as coded.
+Automated tests: bash run_tests.sh (or npm test).
+Screenshot regeneration: npm run screenshot (drops a fresh artifacts/dashboard.png).
+Manual review: open public/buggy.html for the defect reproduction, and http://127.0.0.1:<port> for the fixed UI.
+Let me know if you need the port-3000 reservation cleared differently or if you’d like additional Playwright coverage.

@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Demo Dashboard · Improved</title>
+    <link
+      rel="preconnect"
+      href="https://cdn.jsdelivr.net"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@3.4.15/dist/tailwind.min.css"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body class="bg-slate-50 text-slate-900 min-h-screen">
+    <a
+      href="#main"
+      class="focus:not-sr-only sr-only absolute left-4 top-4 z-50 rounded bg-white px-3 py-2 text-sm font-medium text-indigo-600 shadow focus:sr-auto"
+      >Skip to main content</a
+    >
+    <div class="min-h-screen">
+      <header
+        class="bg-white shadow-sm border-b border-slate-200 sticky top-0 z-40"
+        role="banner"
+      >
+        <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-4">
+          <div class="flex items-center gap-3">
+            <div
+              class="flex h-11 w-11 items-center justify-center rounded-full bg-indigo-600 text-white font-semibold"
+              aria-hidden="true"
+            >
+              DD
+            </div>
+            <div>
+              <p class="text-xs uppercase tracking-wider text-slate-500">
+                Demo Dashboard
+              </p>
+              <h1 class="text-lg font-semibold text-slate-900">
+                Operations overview
+              </h1>
+            </div>
+          </div>
+          <nav aria-label="Primary" class="hidden gap-6 text-sm font-medium md:flex">
+            <a class="nav-link" href="#usage">Usage</a>
+            <a class="nav-link" href="#alerts">Alerts</a>
+            <a class="nav-link" href="#actions">Actions</a>
+            <a class="nav-link" href="#notes">Notes</a>
+          </nav>
+          <button
+            id="menuButton"
+            class="inline-flex items-center gap-2 rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm font-medium text-slate-700 shadow-sm transition hover:bg-slate-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 md:hidden"
+            aria-expanded="false"
+            aria-controls="mobileNav"
+          >
+            <span>Menu</span>
+            <svg
+              class="h-4 w-4"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+            >
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+        <div id="mobileNav" class="hidden border-t border-slate-200 bg-slate-50 md:hidden">
+          <nav aria-label="Primary mobile" class="flex flex-col px-4 py-3 text-sm font-medium">
+            <a class="mobile-link" href="#usage">Usage</a>
+            <a class="mobile-link" href="#alerts">Alerts</a>
+            <a class="mobile-link" href="#actions">Actions</a>
+            <a class="mobile-link" href="#notes">Notes</a>
+          </nav>
+        </div>
+      </header>
+
+      <main id="main" class="mx-auto max-w-6xl px-4 py-8 space-y-8">
+        <section
+          id="usage"
+          class="grid gap-6 rounded-2xl border border-indigo-100 bg-white p-6 shadow-sm md:grid-cols-2"
+          aria-labelledby="usage-title"
+        >
+          <div>
+            <p class="text-xs uppercase tracking-wide text-indigo-500 font-semibold">Active usage</p>
+            <h2 id="usage-title" class="mt-2 text-2xl font-semibold text-slate-900">
+              42 active teammates
+            </h2>
+            <p class="mt-2 text-sm text-slate-600">
+              Engagement is up 18% vs last week with a median response time of 1.6s.
+            </p>
+            <dl class="mt-6 grid grid-cols-2 gap-4 text-sm">
+              <div class="rounded-lg bg-indigo-50 p-4">
+                <dt class="text-slate-600">Avg. session (min)</dt>
+                <dd class="text-2xl font-semibold text-indigo-700" aria-live="polite">35</dd>
+              </div>
+              <div class="rounded-lg bg-green-50 p-4">
+                <dt class="text-slate-600">Uptime</dt>
+                <dd class="text-2xl font-semibold text-emerald-700" aria-live="polite">99.96%</dd>
+              </div>
+            </dl>
+          </div>
+          <div class="space-y-4">
+            <div class="flex items-center justify-between rounded-xl border border-slate-100 bg-slate-50 px-4 py-3">
+              <div>
+                <p class="text-sm font-medium text-slate-900">Unresolved errors</p>
+                <p class="text-xs text-slate-500">Tracked last 24 hours</p>
+              </div>
+              <p class="text-2xl font-semibold text-rose-600" aria-live="polite">7</p>
+            </div>
+            <div class="flex flex-wrap gap-3">
+              <button
+                type="button"
+                data-filter="all"
+                class="filter-button active"
+                aria-pressed="true"
+              >
+                All issues
+              </button>
+              <button type="button" data-filter="sev1" class="filter-button" aria-pressed="false">
+                Severity 1
+              </button>
+              <button type="button" data-filter="sev2" class="filter-button" aria-pressed="false">
+                Severity 2
+              </button>
+              <button type="button" data-filter="ack" class="filter-button" aria-pressed="false">
+                Acknowledged
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <section id="alerts" aria-labelledby="alerts-title" class="space-y-4">
+          <div class="flex flex-wrap items-center justify-between gap-3">
+            <div>
+              <p class="text-xs font-semibold uppercase tracking-wider text-rose-500">Alerts</p>
+              <h2 id="alerts-title" class="text-xl font-semibold text-slate-900">
+                Attention needed
+              </h2>
+            </div>
+            <div class="flex flex-wrap gap-3" role="group" aria-label="Alert controls">
+              <button class="chip chip-outline" type="button">Mute 1h</button>
+              <button class="chip chip-solid" type="button">Create incident</button>
+            </div>
+          </div>
+          <div class="space-y-3">
+            <article class="alert-card" data-severity="sev1">
+              <div>
+                <p class="text-sm font-semibold text-slate-900">API latency spike detected</p>
+                <p class="text-xs text-slate-500">Region: us-east · Updated 2m ago</p>
+              </div>
+              <span class="severity sev1" aria-label="severity one alert">sev1</span>
+            </article>
+            <article class="alert-card" data-severity="sev2">
+              <div>
+                <p class="text-sm font-semibold text-slate-900">Delayed webhooks</p>
+                <p class="text-xs text-slate-500">85 queued deliveries</p>
+              </div>
+              <span class="severity sev2" aria-label="severity two alert">sev2</span>
+            </article>
+            <article class="alert-card" data-severity="ack">
+              <div>
+                <p class="text-sm font-semibold text-slate-900">Stale data in analytics</p>
+                <p class="text-xs text-slate-500">Acknowledged 20m ago</p>
+              </div>
+              <span class="severity ack" aria-label="acknowledged alert">ack</span>
+            </article>
+          </div>
+        </section>
+
+        <section id="actions" class="grid gap-6 md:grid-cols-[1.2fr_0.8fr]" aria-labelledby="actions-title">
+          <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+            <h2 id="actions-title" class="text-lg font-semibold text-slate-900">
+              Next actions
+            </h2>
+            <p class="mt-1 text-sm text-slate-600">
+              Prioritize the next steps for the on-call engineer. Actions are grouped by urgency to
+              remove guesswork.
+            </p>
+            <div class="mt-6 grid gap-4 sm:grid-cols-2">
+              <div class="action-card">
+                <p class="text-xs uppercase tracking-wide text-rose-500 font-semibold">
+                  Immediate
+                </p>
+                <h3 class="text-base font-semibold text-slate-900">Page incident commander</h3>
+                <p class="text-sm text-slate-600">Route sev1 alerts directly to the on-call lead.</p>
+                <button class="primary-btn mt-4 w-full" type="button">Page now</button>
+              </div>
+              <div class="action-card">
+                <p class="text-xs uppercase tracking-wide text-amber-500 font-semibold">
+                  Soon
+                </p>
+                <h3 class="text-base font-semibold text-slate-900">Generate report</h3>
+                <p class="text-sm text-slate-600">
+                  Share a quick incident summary with product stakeholders.
+                </p>
+                <button class="secondary-btn mt-4 w-full" type="button">Send digest</button>
+              </div>
+            </div>
+          </div>
+          <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+            <h2 class="text-lg font-semibold text-slate-900">Team notes</h2>
+            <label class="mt-3 block text-sm font-medium text-slate-700" for="notes-input"
+              >Add context</label
+            >
+            <textarea
+              id="notes-input"
+              class="mt-1 w-full rounded-xl border border-slate-300 bg-white px-3 py-2 text-sm shadow-sm focus:border-indigo-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
+              rows="6"
+              placeholder="Document learnings for the next shift"
+            ></textarea>
+            <div class="mt-4 flex flex-wrap gap-3">
+              <button class="secondary-btn" type="button">Save draft</button>
+              <button class="primary-btn" type="button">Publish note</button>
+            </div>
+          </div>
+        </section>
+
+        <section
+          id="notes"
+          class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm"
+          aria-labelledby="activity-title"
+        >
+          <div class="flex flex-wrap items-center justify-between gap-4">
+            <div>
+              <p class="text-xs font-semibold uppercase tracking-wider text-slate-500">
+                Recent updates
+              </p>
+              <h2 id="activity-title" class="text-lg font-semibold text-slate-900">
+                Activity feed
+              </h2>
+            </div>
+            <form class="flex items-center gap-3" aria-label="Activity filters">
+              <label class="text-sm font-medium text-slate-700" for="range">Timeframe</label>
+              <select
+                id="range"
+                class="rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm text-slate-700 focus:border-indigo-500 focus:outline-none"
+              >
+                <option>Last 6 hours</option>
+                <option>Last 12 hours</option>
+                <option>Last 24 hours</option>
+              </select>
+            </form>
+          </div>
+          <ol class="mt-6 space-y-4">
+            <li class="activity-row">
+              <p class="font-medium text-slate-900">Webhook latency mitigated</p>
+              <p class="text-sm text-slate-600">Jamie closed the incident · 12:24 PM</p>
+            </li>
+            <li class="activity-row">
+              <p class="font-medium text-slate-900">Error budget alert updated</p>
+              <p class="text-sm text-slate-600">Policy now pages within 3 minutes · 11:08 AM</p>
+            </li>
+            <li class="activity-row">
+              <p class="font-medium text-slate-900">Analytics cache rebuilt</p>
+              <p class="text-sm text-slate-600">Stacey acknowledged completion · 10:42 AM</p>
+            </li>
+          </ol>
+        </section>
+      </main>
+    </div>
+
+    <script type="module" src="./scripts.js"></script>
+  </body>
+</html>
