@@ -1,0 +1,21 @@
+{
+  "name": "ui-ux-improvement-demo",
+  "version": "1.0.0",
+  "description": "Demo project showcasing UI/UX issues detection and fixes",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "playwright test",
+    "test:headed": "playwright test --headed",
+    "test:debug": "playwright test --debug"
+  },
+  "keywords": ["ui", "ux", "accessibility", "testing"],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.40.0"
+  }
+}
