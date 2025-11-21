@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Buggy Demo Dashboard</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-white text-gray-700">
+  <header class="bg-gray-100 p-2">
+    <nav class="flex items-center space-x-4">
+      <a href="#" class="px-2">Home</a>
+      <a href="#" class="px-2">Reports</a>
+      <a href="#" class="px-2">Settings</a>
+    </nav>
+  </header>
+
+  <main class="max-w-4xl mx-auto p-2">
+    <h1 class="text-2xl font-semibold mb-4">Demo Dashboard</h1>
+
+    <section class="grid grid-cols-2 gap-4">
+      <div class="p-1 border">
+        <h2 class="text-lg">Summary</h2>
+        <p class="text-sm">Some metrics here</p>
+      </div>
+
+      <div class="p-1 border">
+        <h2 class="text-lg">Activity</h2>
+        <p class="text-sm">Recent user events</p>
+      </div>
+    </section>
+
+    <div class="mt-6 flex justify-between items-center">
+      <button class="bg-gray-100 text-gray-200 px-3 py-2">Cancel</button>
+      <button class="bg-blue-200 text-white px-3 py-2">Save</button>
+      <button class="bg-transparent text-blue-100 px-3 py-2">Advanced</button>
+    </div>
+
+    <div class="mt-10" style="width:700px;">
+      <p>Some content that will not wrap on small screens to simulate responsive issues.</p>
+    </div>
+
+  </main>
+</body>
+</html>
