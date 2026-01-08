@@ -1,0 +1,49 @@
+---
+
+## 🎯 Requirements & Tasks  
+You must use the provided test file **`ui_test_spec.json`** and follow this workflow:
+
+### 1. **Reconstruct the buggy UI**
+Based on the issues listed in `ui_test_spec.json`, generate a minimal UI that *intentionally contains the defects*.
+
+### 2. **Detect all problems**
+Identify:
+- Accessibility issues (missing labels, ARIA, keyboard traps, contrast)
+- Layout problems (misalignment, spacing, overlap)
+- Visual inconsistencies (color mismatch, unbalanced hierarchy)
+- UX flow issues (unclear actions, confusing components)
+- Responsiveness issues
+
+### 3. **Fix all issues**
+Rebuild the UI with:
+- Tailwind CSS styling
+- Clear visual hierarchy
+- Proper spacing and responsiveness
+- Correct ARIA attributes
+- Good contrast ratios
+- Smooth interactions
+
+### 4. **Generate a runnable project**
+You must automatically create:
+- Project structure
+- UI implementation
+- `setup.sh`
+- `run_tests.sh`
+- Automated UI tests (Playwright / Puppeteer)
+- Any required config files
+
+### 5. **Run and verify**
+Start the server on port **3000**, ensure the UI loads correctly.
+
+### 6. **Return deliverables**
+- List of UI problems found  
+- Fixed UI version  
+- Test results  
+- Screenshots (real or mocked)  
+- Changelog of created/modified files  
+- Instructions for how to view and test the app  
+
+---
+
+## 📂 Input File
+`ui_test_spec.json`
